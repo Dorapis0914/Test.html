@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <p>あいうえお</p>
-    </body>
-</html>
+<head>
+    <title>Test</title>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            background-color: white;
+        }
+        .test{
+            text-align: center;
+            color:black;
+            padding:0px;/*要素の内側に空白*/
+            margin: 30px 500px;/*要素の外側に空白*/
+            font-weight: bold;/*文字の太さを指定する*/
+            border:solid 3px black;/*直線のボーダーを引く*/
+            border-radius: 15px;/*ボーダーラインに丸みを追加する*/
+        }
+        #size{
+            font-size:30px;
+            font-weight: bold;
+        }
+        button{
+            background-color:white;
+            color:black;
+            border: none;/*buttonのボーダーを消す*/
+        }
+    </style>
+    <script>
+        function Namebutton(){
+        const textbox = document.getElementById('Mytext');/*inputで入力した値を定数constを使用してtextboxに代入*/
+        const inputValue = textbox.value;/*textbox.valueを定数constを使用してinputValueに代入*/
+        const keisannbox1 = document.getElementById('keisann1');/*inputで入力した値を定数constに代入*/
+        const keisannbox2 = document.getElementById('keisann1');/*同上*/
+        const kekka= Number(keisannbox1.value) + Number(keisannbox2.value);/*kekkaに数値に変換した値を代入*/
+        if( inputValue== kekka){/*inputValueとkekkaが同一の場合...*/
+            alert("正解です。");/*ポップアップを表示*/  
+        } else {/*上記の条件と合わない場合...*/
+            alert("違います。")/*ポップアップを表示*/
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class = "test">
+    <button onclick = "Namebutton()"><p id = "size">判定</p></button>
+    </div>
+    <div>
+        <p><input type = "text" size = "1" id = keisann1>+<input type = "text" size = "1" id = keisann2></p>
+        <label>回答: <input type = "text" size = "20" id = "Mytext"></label>
+    </div>
+        
+</body> 
