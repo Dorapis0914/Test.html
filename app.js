@@ -1,3 +1,4 @@
+
 function Namebutton() {
     const text = document.getElementById("sample");
     const text2 = document.getElementById("sample2");
