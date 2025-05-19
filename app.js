@@ -1,4 +1,4 @@
-
+//index.htmlファイルのjs
 function Namebutton() {
     const text = document.getElementById("sample");
     const text2 = document.getElementById("sample2");
@@ -6,3 +6,4 @@ function Namebutton() {
     const b = text2.value;//"
     alert(Number(s)+Number(b)); //Numberで数値型にする
 }
+
