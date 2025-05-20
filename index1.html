@@ -5,16 +5,20 @@
     <title>Switch</title>
     <style>
         .toukatu{
-            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+            
         }
         #Text{
             width: 70px;
             height: 15px;
         }
         .Text2{
-            width:90px;
+            width:200px;
             height:50px;
-            margin-left:89px;
+        }
+        #myImage{
+            display:none;
         }
     </style>
     <script src = "app1.js"></script>
@@ -24,6 +28,7 @@
         <h1>1 〜 5の値を入力</h1>
         <label>ここに入力 : <input type = "text" id = "Text">回<p id = "moji"></p></label>
         <p><button onclick = "ButtonClick()" type = "button" class = "Text2">入力</button></p>
+        <img id = "myImage" src = "画像フォルダ/doraemon.jpg">
     </div>
 </body>
 </html>
