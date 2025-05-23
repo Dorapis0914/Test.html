@@ -2,29 +2,31 @@
 function ButtonClick(){
     function changeImage() {
         const imgElement = document.getElementById("myImage");
-        imgElement.src = "画像フォルダ/ダウンロード.png";
-        imgElement.style.display = "block";
+        switch (text) {
+            case "1":
+                imgElement.src = "https://lh3.googleusercontent.com/Kthiw2B3IDE-8Ef7VSmdEnbkVEFXzoTOw7o4fXqxNk1L9TcYD68pRLxzWTFbKS2Q3ogNS0Pks5Q2UM3HAG1e=s1200-rw";
+                imgElement.style.display = "blcok";
+                break;
+            case "2":
+                alert("No image")
+                break;
+            case "3":
+                imgElement.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9_jZlioOC4uGOWQyHfZ_ESWAD7YRfJEklng&s";
+                imgElement.style.display = "blcok";
+                break;
+            case "4":
+                alert("No image");
+                break;
+            case "5":
+                imgElement.src = "https://i0.wp.com/toshidensetsu-ikki.com/wp-content/uploads/dabareefee.jpg?resize=620%2C500";
+                imgElement.style.display = "blcok";
+                break;
+            default:
+                break;
+        }
     }
-    const a = document.getElementById("Text");
-    const text = a.value;
-    switch (text) {
-        case "1":
-            changeImage()
-            break;
-        case "2":
-            alert(2)
-            break;
-        case "3":
-            alert(3)
-            break;
-        case "4": 
-            alert(4)
-            break;
-        case "5":
-            alert(5)
-            break;
-        default:
-            alert("1~5の数字を入力してください");
-            break;
+        const a = document.getElementById("Text");
+        const text = a.value;
+changeImage();
     }
-}
+
