@@ -2,10 +2,34 @@
 <html lang = "ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Switch</title>
     <style>
         body{
             background-color: bisque;
+        }
+        /* ...既存の<style>内に追加... */
+        h3 {
+            position: relative;
+            margin-bottom: 50px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        h3::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 3px;
+            background: #333;
+            transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        h3:hover::after,
+        h3:focus::after {
+            width: 100%;
         }
         .toukatu{
             font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -20,15 +44,27 @@
             width:200px;
             height:50px;
         }
+                /* ...既存の<style>内に追加... */
+        #myImage {
+            width: 600px;      /* 横幅を300pxに固定 */
+            height: 700px;     /* 高さを200pxに固定 */
+            object-fit: cover; /* 画像の比率を保ちつつ枠に収める */
+            display: block;    /* レイアウト崩れ防止（任意） */
+            margin: 0 auto;    /* 中央寄せ（任意） */
+            display:none;
+        }
     </style>
     <script src = "app1.js"></script>
 </head>
 <body>
-    <div class = "toukatu">
-        <h1>1 〜 5の値を入力</h1>
-        <label>ここに入力 : <input type = "text" id = "Text">回</label>
-        <p><button onclick = "ButtonClick()" type = "button" class = "Text2">入力</button></p>
-        <img id = "myImage">
-    </div>
+    <section>
+        <h3>1～5の値を入力したらなんか起こるサイト</h3>
+        <div class = "toukatu">
+            <h1>1 〜 5の値を入力</h1>
+            <label>ここに入力 : <input type = "text" id = "Text">回</label>
+            <p><button onclick = "ButtonClick()" type = "button" class = "Text2">入力</button></p>
+            <img id = "myImage">
+        </div>
+    </section>
 </body>
 </html>

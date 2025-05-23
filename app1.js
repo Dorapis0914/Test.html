@@ -6,6 +6,7 @@ function ButtonClick(){
     if (text =="") {
         imgElement.src = ""; // 画像を消す
     } else {
+         imgElement.style.display = "block";
             switch (text) {
                 case "1":
                     imgElement.src = "画像フォルダ/1回見たら死ぬ絵.webp";
@@ -25,6 +26,7 @@ function ButtonClick(){
                 default:
                     break;
             }
+
         a.value = "";
     }
 }
