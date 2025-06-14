@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>タイピング長文練習</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Meiryo', sans-serif;
+            background: linear-gradient(120deg, #f0f4ff 0%, #e0e7ff 100%);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            padding: 32px 24px 24px 24px;
+        }
+        h2 {
+            text-align: center;
+            color: #3b4cca;
+            margin-bottom: 24px;
+        }
+        #selectText {
+            margin-bottom: 16px;
+            width: 100%;
+            font-size: 1.1em;
+            padding: 6px;
+            border-radius: 6px;
+            border: 1px solid #bfcfff;
+            background: #f5f8ff;
+        }
+        #originalText {
+            border: 1px solid #bfcfff;
+            padding: 14px;
+            margin-bottom: 14px;
+            background: #f9faff;
+            border-radius: 6px;
+            min-height: 60px;
+            font-size: 1.1em;
+            color: #222;
+            transition: background 0.3s;
+        }
+        #typingArea {
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1.1em;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #bfcfff;
+            margin-bottom: 10px;
+            background: #f5f8ff;
+            resize: vertical;
+            transition: border 0.2s;
+        }
+        #typingArea:focus {
+            border: 1.5px solid #3b4cca;
+            outline: none;
+        }
+        #checkBtn, #timerBtn {
+            font-size: 1em;
+            padding: 8px 18px;
+            margin: 6px 8px 6px 0;
+            border: none;
+            border-radius: 6px;
+            background: #3b4cca;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        #checkBtn:disabled {
+            background: #bfcfff;
+            color: #888;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        #checkBtn:hover:enabled, #timerBtn:hover {
+            background: #253a8a;
+        }
+        #timerDisplay {
+            font-size: 1.1em;
+            color: #253a8a;
+            margin-left: 10px;
+        }
+        #result {
+            margin-top: 18px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+            color: #222;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 12px 4px 16px 4px;
+            }
+            #originalText, #typingArea {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>長文タイピング練習</h2>
+        <select id="selectText"></select>
+        <div id="originalText"></div>
+        <textarea id="typingArea" rows="5" placeholder="ここにタイピングしてください"></textarea><br>
+        <button id="checkBtn" disabled>判定</button>
+        <button id="timerBtn">10分はかる</button>
+        <span id="timerDisplay"></span>
+        <div id="result"></div>
+    </div>
+    <script src="app2.js"></script>
+</body>
+</html>
