@@ -10,18 +10,16 @@
     <style>
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 120px; /* ここを追加 */
         }
         body {
             margin: 0;
-            padding:0px;
-        }
-        h2.midasi {
-            scroll-margin-top: 120px;
+            padding:0;
         }
         #id {
             display: flex;
             width: 100%;
-            height: 15%;
+            height: 120px;
             background: linear-gradient(rgb(235, 228, 231), rgb(135, 197, 226));
             align-items: center;
             position: fixed;
@@ -29,6 +27,7 @@
             left: 0;
             z-index: 1000;
         }
+        
         .title {
             margin-right: auto;
             padding-left: 20px;
@@ -53,6 +52,22 @@
             color: rgb(68, 67, 67);
             border-bottom: 0.15rem solid;
         }
+        div.youso{
+            margin-left:50px;
+            border:2px solid black;
+            margin-top:3px;
+            
+        }
+        button{
+        
+            background-color:white;
+            border-radius:50% black;
+        }
+        summary{
+            list-style: none;
+            margin-left:50px;
+        }
+        
     </style>
 </head>
 <body>
@@ -73,83 +88,45 @@
         </header>
     </section>
     <section class="sectiontag">
-        <h2 id="ennzan" class = "midasi">数の表現と演算</h2>
-        <h3>1.1 数の表現</h3>
-        <h3>1.2 2進数の演算</h3>
-        <h3>章末問題</h3>
+        <h2 id="ennzan" class = "midasi" style = "padding-top:120px">数の表現と演算</h2>
+        <div class="kou">
+            <h3>1.1 数の表現</h3>
+                <details id="practice-details">
+                    <summary><button type="button" onclick="toggleDetails()">練習問題</button></summary>
+                    <div class="youso">
+                        <p>test</p>
+                    </div>
+                </details>
+                
+            </div>
+        </div>
+            <h3>1.2 2進数の演算</h3>
+            <h3>章末問題</h3>
     </section>
     <section>
         <h2 id="ronnri" class = "midasi">論理回路</h2>
         <h3>2.1 論理回路と論理式</h3>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
+        <h3>章末問題</h3>
     </section>
     <section>
         <h2 id="hardwea" class = "midasi">ハードウェアの知識</h2>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
+        <h3>章末問題</h3>
     </section>
     <section>
         <h2 id = "softwea" class = "midasi">ソフトウェアの基礎</h2>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
+        <h3>章末問題</h3>
     </section>
     <section>
         <h2 id = "computer" class = "midasi">コンピュータの利用</h2>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
+        <h3>章末問題</h3>
     </section>
     <section>
         <h2 id = "arugorizum" class = "midasi">アルゴリズム</h2>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
+        <h3>章末問題</h3>
     </section>
     <section>
         <h2 id = "program" class = "midasi">プログラム作成能力</h2>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
-        <p>test</p>
+        <h3>章末問題</h3>
     </section>
     <div style="height: 500px;"></div> <!--ダミーの余白を追加-->
 </body>
