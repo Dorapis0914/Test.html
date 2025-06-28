@@ -1,4 +1,6 @@
-function toggleDetails() {
-    const details = document.getElementById('practice-details');
-    details.open = !details.open;
+function toggleDetails(id) {
+    const details = document.getElementById(id);
+    if (details) {
+        details.open = !details.open;
+    }
 }
