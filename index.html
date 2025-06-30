@@ -58,16 +58,46 @@
             margin-left:10px;
             border:solid black;
             width:65px;
+            
+        }  
+        h1{
+            transition:all 1.0s;
+            }
+            h1:hover {
+            border-bottom:2px solid black;
+}
+        .title {
+            display: inline-block;
+            position: relative;
+            list-style:none;
         }
-        .title:hover{
-            border-bottom:3px solid black;
+        .title::after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: black;
+            transition: width 0.5s;
+        }
+
+        .title:hover::after {
+            width: 100%;
+        }
+        .title a {
+            text-decoration: none;
+        }
+        a:visited{
+            color:black;
         }
     </style>
 </head>
 <body>
     <section>
         <header id="id">
-            <h1 class="title">Test Home Page</h1>
+            <h1 class="title"><a href="#" style ="text-decoration:noen;">Home Page</a></h1>
             <nav class="nav">
                 <ul>
                     <li class="menu"><a href="#ennzan">数の表現と演算</a></li>
@@ -150,5 +180,6 @@
         <h3>章末問題</h3>
     </section>
     <div style="height: 500px;"></div> <!--ダミーの余白を追加-->
+
 </body>
 </html>
