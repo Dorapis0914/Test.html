@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>漢字・単語辞典（API版＋カメラOCR）</title>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+<body>
+    <section>
+        <h2>漢字・単語辞典（API版＋カメラOCR）</h2>
+        <input type="text" id="wordInput" placeholder="単語や漢字を入力">
+        <button onclick="searchYomi()">検索</button>
+        <button onclick="openCamera()">カメラで入力</button>
+        <input type="file" id="cameraInput" accept="image/*" capture="environment" style="display:none" onchange="handleImage(this)">
+        <div id="ocrResult"></div>
+        <div id="result"></div>
+    </section>
+    <script>
+    // OCRで画像からテキスト抽出
+    function openCamera() {
+        document.getElementById('cameraInput').click();
+    }
+
+    function handleImage(input) {
+        if (input.files && input.files[0]) {
+            document.getElementById('ocrResult').textContent = "画像から文字を認識中...";
+            Tesseract.recognize(
+                input.files[0],
+                'jpn',
+                { logger: m => console.log(m) }
+            ).then(({ data: { text } }) => {
+                const cleaned = text.replace(/\s/g, "");
+                document.getElementById('ocrResult').textContent = "認識結果: " + cleaned;
+                document.getElementById('wordInput').value = cleaned;
+            }).catch(() => {
+                document.getElementById('ocrResult').textContent = "画像認識に失敗しました";
+            });
+        }
+    }
+
+    // Yahoo! APIで読みを取得
+    async function searchYomi() {
+        const appid = "あなたのアプリケーションID"; // ここにYahoo!のアプリケーションIDを入力
+        const input = document.getElementById('wordInput').value.trim();
+        const url = `https://jlp.yahooapis.jp/FuriganaService/V2/furigana`;
+        const body = {
+            id: "1",
+            jsonrpc: "2.0",
+            method: "jlp.furiganaservice.furigana",
+            params: {
+                q: input,
+                grade: 1
+            }
+        };
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.textContent = "検索中...";
+
+        try {
+            const res = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "User-Agent": "Yahoo AppID: " + appid
+                },
+                body: JSON.stringify(body)
+            });
+            const data = await res.json();
+            // 結果から読みを抽出
+            let yomi = "";
+            if (data && data.result && data.result.word) {
+                yomi = data.result.word.map(w => w.furigana || w.surface).join("");
+            }
+            resultDiv.textContent = yomi ? `読み：${yomi}` : "見つかりませんでした";
+                } catch (e) {
+                    resultDiv.textContent = "エラーが発生しました";
+                }
+            }
+            </script>
+        </body>
+        </html>
